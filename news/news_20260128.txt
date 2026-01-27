@@ -12,3 +12,22 @@ Fetching AI/LLM news...
   		https://techcrunch.com/2026/01/27/anthropic-and-openai-ceos-condemn-ice-violence-praise-trump/
 
 === VentureBeat AI ===
+Done.
+---
+Fetching AI/LLM news...
+--- 2026-01-28 08:17:11 ---
+
+=== TechCrunch AI ===
+• 	AI News &amp; Artificial Intelligence | TechCrunch
+  	https://techcrunch.com/category/artificial-intelligence/
+• 		Anduril has invented a wild new drone flying contest where jobs are the prize 
+  		https://techcrunch.com/2026/01/27/anduril-has-invented-a-wild-new-drone-flying-contest-where-jobs-are-the-prize/
+• 		Anthropic reportedly upped its latest raise to $20B
+  		https://techcrunch.com/2026/01/27/anthropic-reportedly-upped-its-latest-raise-to-20b/
+• 		Anthropic and OpenAI CEOs condemn ICE violence, praise Trump
+  		https://techcrunch.com/2026/01/27/anthropic-and-openai-ceos-condemn-ice-violence-praise-trump/
+
+=== VentureBeat AI ===
+
+Done.
+---
