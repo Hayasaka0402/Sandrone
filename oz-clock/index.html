@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OZ World Clock - Summer Wars</title>
+
+    <!-- 外部CSS読み込み -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- D3.js & TopoJSON CDN -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+</head>
+<body>
+    <!-- 地球儀コンテナ -->
+    <div class="globe-container">
+        <!-- D3.js SVG地球儀 -->
+        <svg id="globe-svg"></svg>
+
+        <!-- 時刻表示バー -->
+        <div class="time-bar">
+            <div class="time-display" id="time-display">00:00:00:00</div>
+        </div>
+    </div>
+
+    <!-- ニュースアーカイブ画像展開コンテナ -->
+    <div id="news-archive-container"></div>
+
+    <!-- テストボタン -->
+    <button id="test-archive-btn">📰 画像展開テスト</button>
+
+    <!-- 時報ボタン -->
+    <button class="audio-button" id="audio-btn">🔇 時報OFF</button>
+
+    <!-- JavaScript読み込み -->
+    <script src="js/clock.js"></script>
+    <script src="js/globe.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/news-archive.js"></script>
+</body>
+</html>

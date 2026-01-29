@@ -1,0 +1,325 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f0f0f0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.globe-container {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* D3.js SVG地球儀 */
+#globe-svg {
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    z-index: 10; /* 画像展開より前面に */
+}
+
+/* 前面大陸（見える側） */
+.land-front {
+    fill: #FF69B4;
+    stroke: none;
+}
+
+/* 背面大陸（裏側） */
+.land-back {
+    fill: #E8E8E8;
+    stroke: none;
+}
+
+/* 海洋 */
+.ocean {
+    fill: none;
+    stroke: none;
+}
+
+/* 地球の球体アウトライン */
+.sphere {
+    fill: #F8F8F8;
+    stroke: rgba(200, 200, 200, 0.3);
+    stroke-width: 1px;
+}
+
+/* 時刻表示バー */
+.time-bar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 120px;
+    background: rgba(230, 230, 230, 0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 20; /* 最前面 */
+}
+
+.time-display {
+    font-size: 96px;
+    font-weight: 900;
+    color: #2a2a2a;
+    letter-spacing: 8px;
+    font-family: 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1;
+}
+
+.time-display .pink {
+    color: #FF69B4;
+}
+
+.time-label {
+    position: absolute;
+    bottom: -50px;
+    font-size: 18px;
+    color: #666;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+/* 時報ボタン */
+.audio-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(255, 105, 180, 0.15);
+    border: 2px solid rgba(255, 105, 180, 0.4);
+    color: #666;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.audio-button:hover {
+    background: rgba(255, 105, 180, 0.25);
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+    transform: scale(1.05);
+}
+
+.audio-button.active {
+    background: rgba(255, 105, 180, 0.3);
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+    color: #2a2a2a;
+    font-weight: 600;
+}
+
+/* ミニマルデザインのため、パーティクルエフェクトは非表示 */
+.stars,
+.magic-particles {
+    display: none;
+}
+
+/* ==============================
+   ニュースアーカイブ画像展開機能
+   ============================== */
+
+/* 画像展開コンテナ */
+#news-archive-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1; /* 地球儀の後ろ */
+}
+
+/* アイテム全体（棒＋画像） */
+.news-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(var(--angle));
+    opacity: 0;
+    pointer-events: auto;
+}
+
+/* 展開時に表示 */
+.news-item.show {
+    opacity: 1;
+}
+
+/* フェードアウト */
+.news-item.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+/* 棒（地球儀と画像を繋ぐ線） */
+.news-line {
+    position: absolute;
+    top: 275px; /* 地球儀の半径（550px / 2）から開始 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 0;
+    background: linear-gradient(to bottom,
+        rgba(255, 105, 180, 0),
+        rgba(255, 105, 180, 0.8));
+    transform-origin: top center;
+    transition: height 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 展開時に棒が伸びる（地球儀の表面から外側へ） */
+.news-item.show .news-line {
+    height: calc(var(--distance) - 275px); /* 地球儀の外側だけ */
+}
+
+/* 個別の画像カード（円形） */
+.news-card {
+    position: absolute;
+    top: var(--distance);
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    width: 150px;
+    height: 150px; /* 正円 */
+    margin-top: -75px; /* 中心を線の先端に合わせる */
+    background: white;
+    border-radius: 50%; /* 円形 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    overflow: visible; /* タイトル表示のため */
+    border: 4px solid rgba(255, 105, 180, 0.6); /* ピンク枠 */
+    transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s; /* 棒より少し遅れて */
+}
+
+/* 展開時に画像が現れる */
+.news-item.show .news-card {
+    transform: translateX(-50%) scale(1);
+}
+
+/* カード内の画像（円形にクリップ） */
+.news-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+}
+
+/* カード内のタイトル */
+.news-title {
+    position: absolute;
+    bottom: -40px; /* 円の下に配置 */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 6px 12px;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    border-radius: 4px;
+}
+
+/* テストボタン */
+#test-archive-btn {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: rgba(255, 105, 180, 0.15);
+    border: 2px solid rgba(255, 105, 180, 0.4);
+    color: #666;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+#test-archive-btn:hover {
+    background: rgba(255, 105, 180, 0.25);
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+    transform: scale(1.05);
+}
+
+#test-archive-btn:active {
+    transform: scale(0.95);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .globe-container {
+        transform: scale(0.6);
+    }
+
+    .time-display {
+        font-size: 72px;
+        letter-spacing: 4px;
+    }
+
+    .time-label {
+        font-size: 14px;
+    }
+
+    /* 画像カードを小さく（円形維持） */
+    .news-card {
+        width: 120px;
+        height: 120px;
+        margin-top: -60px;
+    }
+
+    .news-line {
+        width: 2px;
+    }
+
+    #test-archive-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .globe-container {
+        transform: scale(0.45);
+    }
+
+    .time-display {
+        font-size: 60px;
+        letter-spacing: 2px;
+    }
+
+    /* 画像カードをさらに小さく（円形維持） */
+    .news-card {
+        width: 100px;
+        height: 100px;
+        margin-top: -50px;
+        border-width: 3px;
+    }
+
+    .news-line {
+        width: 2px;
+    }
+
+    .news-title {
+        font-size: 9px;
+        padding: 4px 8px;
+        bottom: -30px;
+    }
+}
