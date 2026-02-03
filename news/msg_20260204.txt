@@ -1,0 +1,11 @@
+**🤖 サンドローネのAIニュース速報（2026/02/04）**
+
+• 	AI News &amp; Artificial Intelligence | TechCrunch
+  	https://techcrunch.com/category/artificial-intelligence/
+• 		Intel will start making GPUs, a market dominated by Nvidia 
+  		https://techcrunch.com/2026/02/03/intel-will-start-making-gpus-a-market-dominated-by-nvidia/
+• 		Xcode moves into agentic coding with deeper OpenAI and Anthropic integrations
+  		https://techcrunch.com/2026/02/03/xcode-moves-into-agentic-coding-with-deeper-openai-and-anthropic-integrations/
+• 		Lotus Health nabs $35M for AI doctor that sees patients for free
+  		https://techcrunch.com/2026/02/03/lotus-health-nabs-35m-for-ai-doctor-that-sees-patients-for-free/
+
