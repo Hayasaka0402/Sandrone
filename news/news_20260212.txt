@@ -1,0 +1,17 @@
+Fetching AI/LLM news...
+--- 2026-02-12 08:10:59 ---
+
+=== TechCrunch AI ===
+• 	AI News &amp; Artificial Intelligence | TechCrunch
+  	https://techcrunch.com/category/artificial-intelligence/
+• 		AI inference startup Modal Labs in talks to raise at $2.5B valuation, sources say
+  		https://techcrunch.com/2026/02/11/ai-inference-startup-modal-labs-in-talks-to-raise-at-2-5b-valuation-sources-say/
+• 		OpenAI disbands mission alignment team, which focused on &#8216;safe&#8217; and &#8216;trustworthy&#8217; AI development
+  		https://techcrunch.com/2026/02/11/openai-disbands-mission-alignment-team-which-focused-on-safe-and-trustworthy-ai-development/
+• 		Apple&#8217;s Siri revamp reportedly delayed&#8230; again
+  		https://techcrunch.com/2026/02/11/apples-siri-revamp-reportedly-delayed-again/
+
+=== VentureBeat AI ===
+
+Done.
+---
