@@ -1,0 +1,17 @@
+Fetching AI/LLM news...
+--- 2026-02-13 08:00:05 ---
+
+=== TechCrunch AI ===
+• 	AI News &amp; Artificial Intelligence | TechCrunch
+  	https://techcrunch.com/category/artificial-intelligence/
+• 		Musk needed a new vision for SpaceX and xAI. He landed on Moonbase Alpha.
+  		https://techcrunch.com/2026/02/12/musk-needed-a-new-vision-for-spacex-and-xai-he-landed-on-moonbase-alpha/
+• 		Didero lands $30M to put manufacturing procurement on &#8216;agentic&#8217; autopilot
+  		https://techcrunch.com/2026/02/12/didero-lands-30m-to-put-manufacturing-procurement-on-agentic-autopilot/
+• 		Anthropic raises another $30B in Series G, with a new value of $380B
+  		https://techcrunch.com/2026/02/12/anthropic-raises-another-30-billion-in-series-g-with-a-new-value-of-380-billion/
+
+=== VentureBeat AI ===
+
+Done.
+---
