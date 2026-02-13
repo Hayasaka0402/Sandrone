@@ -1,0 +1,17 @@
+Fetching AI/LLM news...
+--- 2026-02-14 08:05:13 ---
+
+=== TechCrunch AI ===
+• 	AI News &amp; Artificial Intelligence | TechCrunch
+  	https://techcrunch.com/category/artificial-intelligence/
+• 		Airbnb says a third of its customer support is now handled by AI in the US and Canada
+  		https://techcrunch.com/2026/02/13/airbnb-says-a-third-of-its-customer-support-is-now-handled-by-ai-in-the-u-s-and-canada/
+• 		Why top talent is walking away from OpenAI and xAI
+  		https://techcrunch.com/video/why-top-talent-is-walking-away-from-openai-and-xai/
+• 		OpenAI removes access to sycophancy-prone GPT-4o model
+  		https://techcrunch.com/2026/02/13/openai-removes-access-to-sycophancy-prone-gpt-4o-model/
+
+=== VentureBeat AI ===
+
+Done.
+---
