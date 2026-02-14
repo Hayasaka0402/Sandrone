@@ -1,0 +1,17 @@
+Fetching AI/LLM news...
+--- 2026-02-15 08:14:09 ---
+
+=== TechCrunch AI ===
+• 	AI News &amp; Artificial Intelligence | TechCrunch
+  	https://techcrunch.com/category/artificial-intelligence/
+• 		Is safety is ‘dead’ at xAI?
+  		https://techcrunch.com/2026/02/14/is-safety-is-dead-at-xai/
+• 		Hollywood isn&#8217;t happy about the new Seedance 2.0 video generator
+  		https://techcrunch.com/2026/02/14/hollywood-isnt-happy-about-the-new-seedance-2-0-video-generator/
+• 		India doubles down on state-backed venture capital, approving $1.1B fund
+  		https://techcrunch.com/2026/02/14/india-doubles-down-on-state-backed-venture-capital-approving-1-1b-fund/
+
+=== VentureBeat AI ===
+
+Done.
+---
